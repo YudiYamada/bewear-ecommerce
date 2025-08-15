@@ -4,6 +4,7 @@ import CategorySelector from "@/components/common/category-selector";
 import Footer from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 import ProductList from "@/components/common/product-list";
+import PartnerBrands from "@/components/ui/partner-brands";
 import { getCategories } from "@/data/categories/get";
 import {
   getNewlyCreatedProducts,
@@ -30,6 +31,8 @@ const Home = async () => {
             className="h-auto w-full"
           />
         </div>
+
+        <PartnerBrands />
 
         <ProductList products={products} title="Mais vendidos" />
 
