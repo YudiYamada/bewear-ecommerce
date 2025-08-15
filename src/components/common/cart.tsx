@@ -27,7 +27,7 @@ export const Cart = () => {
           <ShoppingBasketIcon />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="w-[90%]">
         <SheetHeader>
           <SheetTitle>Carrinho</SheetTitle>
         </SheetHeader>
