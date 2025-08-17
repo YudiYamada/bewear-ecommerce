@@ -18,43 +18,94 @@ const Home = async () => {
     getCategories(),
   ]);
   return (
-    <>
-      <Header />
-      <div className="space-y-6">
-        <div className="px-5">
-          <Image
-            src="/banner-01.png"
-            alt="Leve uma vida com estilo"
-            height={0}
-            width={0}
-            sizes="100vw"
-            className="h-auto w-full"
-          />
+    <div>
+      <div className="mx-auto max-w-[1440px] mb-8">
+        <Header />
+        <div className="space-y-16">
+          <div className="px-5">
+            <div className="px-5">
+              {/* Mobile: aparece antes de sm */}
+              <Image
+                src="/mobile/mobile-banner-01.svg"
+                alt="Leve uma vida com estilo"
+                height={0}
+                width={0}
+                sizes="100vw"
+                className="h-auto w-full md:hidden"
+              />
+
+              {/* Desktop: aparece a partir de sm */}
+              <Image
+                src="/desktop/desktop-banner-01.svg"
+                alt="Leve uma vida com estilo"
+                height={0}
+                width={0}
+                sizes="100vw"
+                className="hidden h-auto w-full md:block"
+              />
+            </div>
+          </div>
+
+          <PartnerBrands />
+
+          <ProductList products={products} title="Mais vendidos" />
+
+          <div className="px-5 sm:hidden">
+            <CategorySelector categories={categories} />
+          </div>
+
+          <div className="px-5">
+            <div className="px-5">
+              {/* Mobile: aparece antes de sm */}
+              <Image
+                src="/mobile/mobile-banner-02.svg"
+                alt="Leve uma vida com estilo"
+                height={0}
+                width={0}
+                sizes="100vw"
+                className="h-auto w-full md:hidden"
+              />
+
+              {/* Desktop: aparece a partir de sm */}
+              <div className="flex justify-center gap-3">
+                <div className="flex flex-col gap-3">
+                  <Image
+                    src="/desktop/desktop-banner-03.svg"
+                    alt="Leve uma vida com estilo"
+                    height={0}
+                    width={0}
+                    sizes="100vw"
+                    className="hidden h-auto w-full md:block"
+                  />
+
+                  <Image
+                    src="/desktop/desktop-banner-04.svg"
+                    alt="Leve uma vida com estilo"
+                    height={0}
+                    width={0}
+                    sizes="100vw"
+                    className="hidden h-auto w-full md:block"
+                  />
+                </div>
+                <div className="">
+                  <Image
+                    src="/desktop/desktop-banner-02.svg"
+                    alt="Leve uma vida com estilo"
+                    height={0}
+                    width={0}
+                    sizes="100vw"
+                    className="hidden h-auto w-full md:block"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ProductList products={newlyCreatedProducts} title="Novos produtos" />
         </div>
-
-        <PartnerBrands />
-
-        <ProductList products={products} title="Mais vendidos" />
-
-        <div className="px-5">
-          <CategorySelector categories={categories} />
-        </div>
-
-        <div className="px-5">
-          <Image
-            src="/banner-02.png"
-            alt="Leve uma vida com estilo"
-            height={0}
-            width={0}
-            sizes="100vw"
-            className="h-auto w-full"
-          />
-        </div>
-
-        <ProductList products={newlyCreatedProducts} title="Novos produtos" />
-        <Footer />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 
