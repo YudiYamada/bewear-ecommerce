@@ -19,8 +19,12 @@ const Home = async () => {
   ]);
   return (
     <div>
-      <div className="mx-auto max-w-[1440px] mb-8">
-        <Header />
+      <Header />
+      <div className="mx-auto mb-8 max-w-[1440px]">
+        <div className="hidden justify-around p-5 font-semibold md:flex">
+          <CategorySelector categories={categories} />
+        </div>
+
         <div className="space-y-16">
           <div className="px-5">
             <div className="px-5">
@@ -50,8 +54,10 @@ const Home = async () => {
 
           <ProductList products={products} title="Mais vendidos" />
 
-          <div className="px-5 sm:hidden">
-            <CategorySelector categories={categories} />
+          <div className="m-5 rounded-3xl bg-[#F4EFFF] p-6 md:hidden">
+            <div className="grid grid-cols-2 gap-3">
+              <CategorySelector categories={categories} />
+            </div>
           </div>
 
           <div className="px-5">
@@ -100,8 +106,12 @@ const Home = async () => {
               </div>
             </div>
           </div>
-
-          <ProductList products={newlyCreatedProducts} title="Novos produtos" />
+          <div className="md:hidden">
+            <ProductList
+              products={newlyCreatedProducts}
+              title="Novos produtos"
+            />
+          </div>
         </div>
       </div>
       <Footer />
