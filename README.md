@@ -2,7 +2,7 @@
 
 Uma plataforma de e-commerce completa e moderna desenvolvida com as melhores tecnologias do ecossistema React/Next.js.
 
-## Visualize o Projeto Clicando [AQUI](https://bewear-ecommerce-ox66q2jn2-yudiyamadas-projects.vercel.app/)
+## Visualize o Projeto Clicando [AQUI](https://bewear-ecommerce-bice.vercel.app/)
 
 ## ✨ Características
 
