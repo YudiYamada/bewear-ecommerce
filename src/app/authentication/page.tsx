@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import { Header } from "@/components/common/header";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import SignInForm from "./components/sign-in-form";
@@ -8,8 +8,13 @@ import SignUpForm from "./components/sign-up-form";
 
 const Authentication = async () => {
   return (
-    <>
-      <Header />
+    <div>
+      <div className="m-2.5">
+        <Link href="/">
+          <Image src="/logo.svg" alt="BEWEAR" width={100} height={26.14} />
+        </Link>
+      </div>
+
       {/*mobile*/}
       <div className="flex w-full flex-col gap-6 p-5 md:hidden">
         <Tabs defaultValue="sign-in">
@@ -53,7 +58,7 @@ const Authentication = async () => {
           </Tabs>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
