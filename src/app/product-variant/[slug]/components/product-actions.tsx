@@ -24,28 +24,57 @@ const ProductActions = ({ productVariantId }: ProductActionsProps) => {
 
   return (
     <>
-      <div className="px-5">
-        <div className="space-y-4">
-          <h3 className="font-medium">Quantidade</h3>
-          <div className="flex w-[100px] items-center justify-between rounded-lg border">
-            <Button size="icon" variant="ghost" onClick={handleDecrement}>
-              <MinusIcon />
-            </Button>
-            <p>{quantity}</p>
-            <Button size="icon" variant="ghost" onClick={handleIncrement}>
-              <PlusIcon />
-            </Button>
+      {/*mobile*/}
+      <div className="md:hidden">
+        <div className="px-5">
+          <div className="space-y-4">
+            <h3 className="font-medium">Quantidade</h3>
+            <div className="flex w-[100px] items-center justify-between rounded-lg border">
+              <Button size="icon" variant="ghost" onClick={handleDecrement}>
+                <MinusIcon />
+              </Button>
+              <p>{quantity}</p>
+              <Button size="icon" variant="ghost" onClick={handleIncrement}>
+                <PlusIcon />
+              </Button>
+            </div>
           </div>
         </div>
+        <div className="flex flex-col space-y-4 px-5">
+          <AddToCartButton
+            productVariantId={productVariantId}
+            quantity={quantity}
+          />
+          <Button className="rounded-full" size="lg">
+            Comprar agora
+          </Button>
+        </div>
       </div>
-      <div className="flex flex-col space-y-4 px-5">
-        <AddToCartButton
-          productVariantId={productVariantId}
-          quantity={quantity}
-        />
-        <Button className="rounded-full" size="lg">
-          Comprar agora
-        </Button>
+      {/*desktop*/}
+      <div className="hidden md:block">
+        <div className="px-5">
+          <div className="space-y-2">
+            <h3 className="font-medium">Quantidade</h3>
+            <div className="flex w-[100px] items-center justify-between rounded-lg border">
+              <Button size="icon" variant="ghost" onClick={handleDecrement}>
+                <MinusIcon />
+              </Button>
+              <p>{quantity}</p>
+              <Button size="icon" variant="ghost" onClick={handleIncrement}>
+                <PlusIcon />
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="my-3.5 flex gap-3 space-y-4 px-5">
+          <AddToCartButton
+            productVariantId={productVariantId}
+            quantity={quantity}
+          />
+          <Button className="rounded-full" size="lg">
+            Comprar agora
+          </Button>
+        </div>
       </div>
     </>
   );
