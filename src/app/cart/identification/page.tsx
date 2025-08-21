@@ -44,31 +44,59 @@ const IdentificationPage = async () => {
     0,
   );
   return (
-    <div>
-      <Header />
-      <div className="space-y-4 px-5">
-        <Addresses
-          shippingAddresses={shippingAddresses}
-          defaultShippingAddressId={cart.shippingAddress?.id || null}
-        />
-        <CartSummary
-          subtotalInCents={cartTotalInCents}
-          totalInCents={cartTotalInCents}
-          products={cart.items.map((item) => ({
-            id: item.productVariant.id,
-            name: item.productVariant.product.name,
-            variantName: item.productVariant.name,
-            quantity: item.quantity,
-            priceInCents: item.productVariant.priceInCents,
-            imageUrl: item.productVariant.imageUrl,
-          }))}
-        />
+    <div className="flex min-h-screen flex-col">
+      <div className="fixed top-0 left-0 w-full">
+        <Header />
       </div>
-      <div className="mt-12">
-        <Footer />
+
+      <div className="flex-1 py-20">
+        <div className="mx-auto w-full max-w-4xl space-y-4 px-5 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
+          <div className="order-1 md:order-2 md:col-start-2">
+            <Addresses
+              shippingAddresses={shippingAddresses}
+              defaultShippingAddressId={cart.shippingAddress?.id || null}
+            />
+          </div>
+
+          <div className="order-2 md:order-1 md:col-start-1">
+            <CartSummary
+              subtotalInCents={cartTotalInCents}
+              totalInCents={cartTotalInCents}
+              products={cart.items.map((item) => ({
+                id: item.productVariant.id,
+                name: item.productVariant.product.name,
+                variantName: item.productVariant.name,
+                quantity: item.quantity,
+                priceInCents: item.productVariant.priceInCents,
+                imageUrl: item.productVariant.imageUrl,
+              }))}
+            />
+          </div>
+        </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
 
 export default IdentificationPage;
+
+{
+  /* <Addresses
+            shippingAddresses={shippingAddresses}
+            defaultShippingAddressId={cart.shippingAddress?.id || null}
+          />
+          <CartSummary
+            subtotalInCents={cartTotalInCents}
+            totalInCents={cartTotalInCents}
+            products={cart.items.map((item) => ({
+              id: item.productVariant.id,
+              name: item.productVariant.product.name,
+              variantName: item.productVariant.name,
+              quantity: item.quantity,
+              priceInCents: item.productVariant.priceInCents,
+              imageUrl: item.productVariant.imageUrl,
+            }))}
+          /> */
+}
